@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#sv start socklog-unix || exit 1
+
+source /etc/envvars
+
+cd /wildfly
+
+exec 2>&1
+exec ./bin/standalone.sh -b 0.0.0.0 -c standalone-full.xml -Djava.security.egd=file:/dev/./urandom -Derrai.bus.enable_sse_support=false 
